@@ -7,14 +7,28 @@ import { Pokemon } from "./types/Pokemon";
 
 type DisplayGameProps = {
     pokemonArray: Pokemon[]; 
-    randomNumberToChoosePokemon: number; 
+    randomNumberToChoosePokemon: number;  
     guessedPokemon: string; 
     setGuessedPokemon: (guessedPokemon: string) => void; 
-    hintsCategoryArray: string[];
-    setHintsCategoryArray: (categoryArray: string[]) => void; 
     setActiveGame: (active: boolean) => void; 
-    propertyForFirstHint: string; 
-    categoryForFirstHint: string; 
+}
+
+function getHint(pokemonArray: Pokemon[], randomNumberPokemon: number) {
+    // 2 beacause we don't want the name or the image to be a hint 
+    let randomNumberHint = Math.floor(Math.random() * (pokemonArray[randomNumberPokemon].data.length - 2) + 2); 
+
+    let objectOfHint = pokemonArray[randomNumberPokemon].data[randomNumberHint]; 
+
+    if( pokemonArray[randomNumberPokemon].data[randomNumberHint].isHint === false) {
+        let entries = Object.entries(objectOfHint); 
+        let keyOfHint = entries[0][0];
+        let valueOfHint = entries[0][1]; 
+        pokemonArray[randomNumberPokemon].data[randomNumberHint].isHint = true;
+    }
+    else{
+        getHint(pokemonArray, randomNumberPokemon);
+    }
+    return "work in progress";
 }
 
 export function DisplayGame(props: DisplayGameProps) {
@@ -23,7 +37,7 @@ export function DisplayGame(props: DisplayGameProps) {
     const [hintsArray, setHintsArray] = useState<Hint[]>([]); 
     
     function handleClickCheckGuess() {
-        if(props.guessedPokemon === props.pokemonArray[props.randomNumberToChoosePokemon].name) {
+        if(props.guessedPokemon === props.pokemonArray[props.randomNumberToChoosePokemon].data[0].name) {
             setGameState("guessedRight");
         }
         else{
@@ -38,15 +52,13 @@ export function DisplayGame(props: DisplayGameProps) {
                     <GenerateHints
                         pokemonArray={props.pokemonArray}
                         randomNumberToChoosePokemon={props.randomNumberToChoosePokemon}
-                        hintsCategoryArray={props.hintsCategoryArray}
-                        setHintsCategoryArray={props.setHintsCategoryArray}
-                        hintsArray={hintsArray}
-                        setHintsArray={setHintsArray}
                         setGameState={setGameState}
                     />
 
                     <h2>
-                        {props.categoryForFirstHint}: {props.pokemonArray[props.randomNumberToChoosePokemon][props.propertyForFirstHint as keyof Pokemon]}
+                        {
+                            getHint(props.pokemonArray, props.randomNumberToChoosePokemon)
+                        }
                     </h2>
 
                     {
@@ -75,7 +87,6 @@ export function DisplayGame(props: DisplayGameProps) {
                     pokemonArray={props.pokemonArray}
                     randomNumberToChoosePokemon={props.randomNumberToChoosePokemon}
                     setActiveGame={props.setActiveGame}
-                    setHintsCategoryArray={props.setHintsCategoryArray}
                     setGuessedPokemon={props.setGuessedPokemon}
                 />
                 :

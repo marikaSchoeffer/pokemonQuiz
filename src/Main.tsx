@@ -9,40 +9,101 @@ export function Main()  {
     const [activeGame, setActiveGame] = useState(false); 
     const [randomNumberToChoosePokemon, setRandomNumberToChoosePokemon] = useState(0); 
     const [guessedPokemon, setGuessedPokemon] = useState(""); 
-    const [hintsCategoryArray, setHintsCategoryArray] = useState(["type", "height", "weight", "color", "category" ]);
-    const [propertyForFirstHint, setPropertyForFirstHint] = useState("");
-    const [categoryForFirstHint, setCategoryForFirstHint] = useState(""); 
 
+    
     let pokemonArray: Pokemon[] = [
-        {
-            name: "Bisasam",
-            image: "./image/Bisasam.png",
-            type: "Pflanze, Gift",
-            height: "0.7 m",
-            weight: "6.9 kg",
-            color: "Grün",
-            category: "Samen-Pokémon"
+        {   data: [
+                {   name: "Bisasam",
+                    isHint: false
+                },
+                {
+                    image: "./image/Bisasam.png",
+                    isHint: false
+                },
+                {
+                    type: "Pflanze, Gift",
+                    isHint: false
+                }, 
+                {
+                    height: "0.7 m",
+                    isHint: false
+                },
+                {
+                    weight: "6.9 kg",
+                    isHint: false
+                },
+                {
+                    color: "Grün",
+                    isHint: false
+                },
+                {
+                    category: "Samen-Pokémon",
+                    isHint: false
+                }
+            ]
         },
 
-        {
-            name: "Bisaknosp",
-            image: "./image/Bisaknosp.png",
-            type: "Pflanze, Gift",
-            height: "1.0 m",
-            weight: "13.0 kg",
-            color: "Grün",
-            category: "Samen-Pokémon"
+        {   data: [
+                {   name: "Bisaknosp",
+                isHint: false
+                },
+                {
+                    image: "./image/Bisaknosp.png",
+                    isHint: false
+                },
+                {
+                    type: "Pflanze, Gift",
+                    isHint: false
+                }, 
+                {
+                    height: "1.0 m",
+                    isHint: false
+                },
+                {
+                    weight: "13.0 kg",
+                    isHint: false
+                },
+                {
+                    color: "Grün",
+                    isHint: false
+                },
+                {
+                    category: "Samen-Pokémon",
+                    isHint: false
+                }
+            ]
         },
 
-        {
-            name: "Bisaflor",
-            image: "./image/Bisaflor.png",
-            type: "Pflanze, Gift",
-            height: "2.0 m",
-            weight: "100.0 kg",
-            color: "Grün",
-            category: "Samen-Pokémon"
-        },
+        {   data: [
+                {   name: "Bisaflor",
+                    isHint: false
+                },
+                {
+                    image: "./image/Bisaflor.png",
+                    isHint: false
+                },
+                {
+                    type: "Pflanze, Gift",
+                    isHint: false
+                }, 
+                {
+                    height: "2.0 m",
+                    isHint: false
+                },
+                {
+                    weight: "100.0 kg",
+                    isHint: false
+                },
+                {
+                    color: "Grün",
+                    isHint: false
+                },
+                {
+                    category: "Samen-Pokémon",
+                    isHint: false
+                }
+            ]
+        }/*,
 
         {
             name: "Glumanda",
@@ -302,7 +363,7 @@ export function Main()  {
             weight: "26.5 kg",
             color: "Violett",
             category: "Sonnen-Pokémon"
-        }
+        }*/
 ]
  
     return(<div>
@@ -314,10 +375,6 @@ export function Main()  {
                 activeGame={activeGame}
                 setActiveGame={setActiveGame}
                 setRandomNumberToChoosePokemon={setRandomNumberToChoosePokemon}
-                hintsCategoryArray={hintsCategoryArray}
-                setHintsCategoryArray={setHintsCategoryArray}
-                setPropertyForFirstHint={setPropertyForFirstHint}
-                setCategoryForFirstHint={setCategoryForFirstHint}
             />
             : 
             <DisplayGame 
@@ -326,10 +383,6 @@ export function Main()  {
                 guessedPokemon={guessedPokemon}
                 setGuessedPokemon={setGuessedPokemon}
                 setActiveGame={setActiveGame}
-                propertyForFirstHint={propertyForFirstHint}
-                categoryForFirstHint={categoryForFirstHint}
-                hintsCategoryArray={hintsCategoryArray}
-                setHintsCategoryArray={setHintsCategoryArray}
             /> 
         }
     </div>); 

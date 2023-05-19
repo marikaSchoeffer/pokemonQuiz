@@ -4,8 +4,6 @@ type GenerateHintsProps = {
     pokemonArray: Pokemon[]; 
     randomNumberToChoosePokemon: number; 
     setGameState: (gameState: string) => void; 
-    setHintsCategoryArray: (categoryArray: string[]) => void; 
-    hintsCategoryArray: string[];
     setHintsArray: (hints: Hint[]) => void; 
     hintsArray: Hint[]; 
 }
