@@ -9,6 +9,7 @@ export function Main()  {
     const [activeGame, setActiveGame] = useState(false); 
     const [randomNumberToChoosePokemon, setRandomNumberToChoosePokemon] = useState(0); 
     const [guessedPokemon, setGuessedPokemon] = useState(""); 
+    const [chosenPokemon, setChosenPokemon] = useState<Pokemon[]>([]);
 
     
     let pokemonArray: Pokemon[] = [
@@ -375,6 +376,7 @@ export function Main()  {
                 activeGame={activeGame}
                 setActiveGame={setActiveGame}
                 setRandomNumberToChoosePokemon={setRandomNumberToChoosePokemon}
+                setChosenPokemon={setChosenPokemon}
             />
             : 
             <DisplayGame 
