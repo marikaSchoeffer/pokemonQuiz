@@ -1,13 +1,36 @@
+import { type } from "os";
+
 type DisplayHintsProps = {
-    category: string;
-    hint: string;
+    keyOfHint: string;
+    valueOfHint: string;
 }
 
 export function DisplayHints(props: DisplayHintsProps) {
+    function translateKeyValue(key: string, value: string) {
+        if(key === "type") {
+            key = "Typ";
+        }
+        else if(key === "height"){
+            key = "Größe";
+        }
+        else if(key === "weight") {
+            key = "Gewicht"; 
+        }
+        else if(key === "color") {
+            key = "Farbe";
+        }
+        else if(key === "category") {
+            key = "Kategorie"; 
+        }
+    
+        return `${key}: ${value}`
+    }
+   
     return(
         <div>
-            <h2>{props.category}: {props.hint}</h2>
+            {
+                translateKeyValue(props.keyOfHint, props.valueOfHint)
+            }
         </div>
-
     ); 
 }

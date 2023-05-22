@@ -1,4 +1,4 @@
 type Hint = {
     category: string; 
-    hint: string; 
+    isHint: boolean; 
 }
