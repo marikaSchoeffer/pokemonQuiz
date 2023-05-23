@@ -18,15 +18,15 @@ export function DisplayGame(props: DisplayGameProps) {
     const [gameState, setGameState] = useState("active");
     const [hintsArray, setHintsArray] = useState<Hint[]>([]); 
     
-    /*function handleClickCheckGuess() {
-        if(props.guessedPokemon === props.pokemonArray[props.randomNumberToChoosePokemon].data[0].name) {
+    function handleClickCheckGuess() {
+        if(props.guessedPokemon === props.chosenPokemon.data[0].name) {
             setGameState("guessedRight");
         }
         else{
             setGameState("guessedWrong");
         }
         
-    }*/
+    }
 
     function isHintTrue(isHint: boolean) {
         if(isHint === true) {
@@ -39,11 +39,10 @@ export function DisplayGame(props: DisplayGameProps) {
         <div>
             { gameState === "active" || gameState === "guessedWrong" ? (
                 <>
-                    {/*<GenerateHints
-                        pokemonArray={props.pokemonArray}
-                        randomNumberToChoosePokemon={props.randomNumberToChoosePokemon}
-                        setGameState={setGameState}
-                    />*/}
+                    <GenerateHints
+                        chosenPokemon={props.chosenPokemon}
+                        setChosenPokemon={props.setChosenPokemon}
+                    />
 
 
                     {
@@ -68,10 +67,7 @@ export function DisplayGame(props: DisplayGameProps) {
                         value={props.guessedPokemon}
                         onChange={x => props.setGuessedPokemon(x.target.value)}
                     />
-
-                    {
-                    //<button onClick={handleClickCheckGuess}>Check</button>
-                    }
+                    <button onClick={handleClickCheckGuess}>Check</button>
                 </>)
                 : null
             }

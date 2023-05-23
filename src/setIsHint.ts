@@ -10,7 +10,8 @@ export function setIsHint(chosenPokemon: Pokemon, setChosenPokemon: (chosenPokem
         chosenPokemonCopy.data[randomNumberHint].isHint = true;
         setChosenPokemon(chosenPokemonCopy); 
     }
-    else{
+    /*else{
+
         setIsHint(chosenPokemon, setChosenPokemon);
-    }
+    }*/
 }
