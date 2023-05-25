@@ -83,29 +83,66 @@ let pokemonArray: Pokemon[] = [
             name: "Bisaflor",
             image: "./image/Bisaflor.png"
         }
-    }/*,
-
-    {
-        name: "Glumanda",
-        image: "./image/Glumanda.png",
-        type: "Feuer",
-        height: "0.6 m",
-        weight: "8.5 kg",
-        color: "Rot",
-        category: "Echsen-Pokémon"
     },
 
     {
-        name: "Glutexo",
-        image: "./image/Glutexo.png",
-        type: "Feuer",
-        height: "1.1 m",
-        weight: "19.0 kg",
-        color: "Rot",
-        category: "Flammen-Pokémon"
+        data: [
+            {
+                type: "Feuer",
+                isHint: false
+            }, 
+            {
+                height: "0.6 m",
+                isHint: false
+            },
+            {
+                weight: "8.5 kg",
+                isHint: false
+            },
+            {
+                color: "Rot",
+                isHint: false
+            },
+            {
+                category: "Echsen-Pokémon",
+                isHint: false
+            }
+        ],
+        metaData: {
+            name: "Glumanda",
+            image: "./image/Glumanda.png"
+        },
     },
-
+    
     {
+        data: [
+            {
+                type: "Feuer",
+                isHint: false
+            }, 
+            {
+                height: "1.1 m",
+                isHint: false
+            },
+            {
+                weight: "19.0 kg",
+                isHint: false
+            },
+            {
+                color: "Rot",
+                isHint: false
+            },
+            {
+                category: "Flammen-Pokémon",
+                isHint: false
+            }
+        ],
+        metaData: {
+            name: "Glutexo",
+            image: "./image/Glutexo.png"
+        },
+    },
+    /*{
         name: "Glurak",
         image: "./image/Glurak.png",
         type: "Feuer, Drache",

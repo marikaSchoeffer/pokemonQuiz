@@ -19,9 +19,9 @@ export function DisplayGame(props: DisplayGameProps) {
     const [gameState, setGameState] = useState("active");
 
     function handleClickCheckGuess() {
-        let nameOfChosenPokemon = structuredClone(props.chosenPokemon.metaData.name).toUpperCase; 
-        let nameOfGuessedPokemon = structuredClone(props.guessedPokemon).toUpperCase; 
-        
+        let nameOfChosenPokemon = structuredClone(props.chosenPokemon.metaData.name).toUpperCase(); 
+        let nameOfGuessedPokemon = structuredClone(props.guessedPokemon).toUpperCase();
+
         if(nameOfGuessedPokemon === nameOfChosenPokemon) {
             setGameState("guessedRight");
         }
