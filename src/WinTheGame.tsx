@@ -1,10 +1,9 @@
 import { Pokemon } from "./types/Pokemon";
 
 type WinTheGameProps = {
-    pokemonArray: Pokemon[];
     setActiveGame: (active: boolean) => void; 
     setGuessedPokemon: (pokemonName: string) => void;
-    randomNumberToChoosePokemon: number; 
+    chosenPokemon: Pokemon;
 }
 
 export function WinTheGame(props: WinTheGameProps) {
@@ -17,11 +16,11 @@ export function WinTheGame(props: WinTheGameProps) {
     return(
         <div>
             <h1>
-                Congratulations! It's {props.pokemonArray[props.randomNumberToChoosePokemon].data[0].name}
+                Congratulations! It's {props.chosenPokemon.metaData.name}
             </h1>
             <img 
-                src={props.pokemonArray[props.randomNumberToChoosePokemon].data[1].image} 
-                alt={props.pokemonArray[props.randomNumberToChoosePokemon].data[0].name}
+                src={props.chosenPokemon.metaData.image} 
+                alt={props.chosenPokemon.metaData.name}
             />
             <br />
             <button onClick={handleClickOneMoreTime}>One more time</button>

@@ -1,14 +1,6 @@
 export type Pokemon = {
     data: [
         {
-            name: string;
-            isHint: boolean;
-        },
-        {
-            image: string;
-            isHint: boolean;
-        },
-        {
             type: string;
             isHint: boolean;
         },
@@ -28,5 +20,9 @@ export type Pokemon = {
             category: string;
             isHint: boolean;
         }
-    ]
+    ],
+    metaData: {
+        name: string,
+        image: string
+    }
 }

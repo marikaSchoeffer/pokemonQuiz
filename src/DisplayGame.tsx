@@ -10,16 +10,19 @@ type DisplayGameProps = {
     setChosenPokemon: (pokemon: Pokemon) => void;  
     guessedPokemon: string; 
     setGuessedPokemon: (guessedPokemon: string) => void; 
+    activeGame: boolean; 
     setActiveGame: (active: boolean) => void; 
 }
 
 export function DisplayGame(props: DisplayGameProps) {
 
     const [gameState, setGameState] = useState("active");
-    const [hintsArray, setHintsArray] = useState<Hint[]>([]); 
-    
+
     function handleClickCheckGuess() {
-        if(props.guessedPokemon === props.chosenPokemon.data[0].name) {
+        let nameOfChosenPokemon = structuredClone(props.chosenPokemon.metaData.name).toUpperCase; 
+        let nameOfGuessedPokemon = structuredClone(props.guessedPokemon).toUpperCase; 
+        
+        if(nameOfGuessedPokemon === nameOfChosenPokemon) {
             setGameState("guessedRight");
         }
         else{
@@ -73,15 +76,14 @@ export function DisplayGame(props: DisplayGameProps) {
             }
 
             {
-                /*gameState === "guessedRight" ?
+                gameState === "guessedRight" ?
                     <WinTheGame 
-                    pokemonArray={props.pokemonArray}
-                    randomNumberToChoosePokemon={props.randomNumberToChoosePokemon}
                     setActiveGame={props.setActiveGame}
                     setGuessedPokemon={props.setGuessedPokemon}
+                    chosenPokemon={props.chosenPokemon}
                 />
                 :
-                null/*/
+                null
             }
 
             {

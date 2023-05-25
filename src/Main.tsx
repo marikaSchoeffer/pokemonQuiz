@@ -27,6 +27,7 @@ export function Main()  {
                 setChosenPokemon={setChosenPokemon}
                 guessedPokemon={guessedPokemon}
                 setGuessedPokemon={setGuessedPokemon}
+                activeGame={activeGame}
                 setActiveGame={setActiveGame}
             /> 
         }

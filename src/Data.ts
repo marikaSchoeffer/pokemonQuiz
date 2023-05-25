@@ -2,13 +2,6 @@ import { Pokemon } from "./types/Pokemon";
 
 let pokemonArray: Pokemon[] = [
     {   data: [
-            {   name: "Bisasam",
-                isHint: false
-            },
-            {
-                image: "./image/Bisasam.png",
-                isHint: false
-            },
             {
                 type: "Pflanze, Gift",
                 isHint: false
@@ -29,17 +22,14 @@ let pokemonArray: Pokemon[] = [
                 category: "Samen-Pokémon",
                 isHint: false
             }
-        ]
+        ],
+        metaData: {
+            name: "Bisasam",
+            image: "./image/Bisasam.png"
+        }
     },
 
     {   data: [
-            {   name: "Bisaknosp",
-            isHint: false
-            },
-            {
-                image: "./image/Bisaknosp.png",
-                isHint: false
-            },
             {
                 type: "Pflanze, Gift",
                 isHint: false
@@ -60,17 +50,14 @@ let pokemonArray: Pokemon[] = [
                 category: "Samen-Pokémon",
                 isHint: false
             }
-        ]
+        ],
+        metaData: {
+            name: "Bisaknosp",
+            image: "./image/Bisaknosp.png"
+        }
     },
 
     {   data: [
-            {   name: "Bisaflor",
-                isHint: false
-            },
-            {
-                image: "./image/Bisaflor.png",
-                isHint: false
-            },
             {
                 type: "Pflanze, Gift",
                 isHint: false
@@ -91,7 +78,11 @@ let pokemonArray: Pokemon[] = [
                 category: "Samen-Pokémon",
                 isHint: false
             }
-        ]
+        ],
+        metaData: {
+            name: "Bisaflor",
+            image: "./image/Bisaflor.png"
+        }
     }/*,
 
     {
