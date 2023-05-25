@@ -1,5 +1,3 @@
-import { type } from "os";
-
 type DisplayHintsProps = {
     keyOfHint: string;
     valueOfHint: string;
