@@ -1,3 +1,6 @@
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 type DisplayHintsProps = {
     keyOfHint: string;
     valueOfHint: string;
@@ -25,10 +28,12 @@ export function DisplayHints(props: DisplayHintsProps) {
     }
    
     return(
-        <div>
-            {
-                translateKeyValue(props.keyOfHint, props.valueOfHint)
-            }
-        </div>
+        <Box>
+            <Typography>
+                {
+                    translateKeyValue(props.keyOfHint, props.valueOfHint)
+                }
+            </Typography>
+        </Box>
     ); 
 }

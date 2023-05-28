@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Typography } from "@mui/material";
+import Box from '@mui/material/Box';
 
 import { StartGame } from "./StartGame";
 import { DisplayGame } from "./DisplayGame";
@@ -15,24 +16,39 @@ export function Main()  {
     const [chosenPokemon, setChosenPokemon] = useState<Pokemon>(pokemonArray[0]);
 
     return(
-    <div>
-        <Typography>Who's that Pokémon?</Typography>
+        <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            rowGap="20px"
+        >
+            <Box
+                display="flex"
+                justifyContent="center"
+                textAlign="center"
+            >
+                <Typography variant="h2">
+                    Who's that Pokémon?
+                </Typography>
+            </Box>
 
-        { activeGame === false ? 
-            <StartGame
-                pokemonArray={pokemonArray}
-                setActiveGame={setActiveGame}
-                setChosenPokemon={setChosenPokemon}
-            />
-            : 
-            <DisplayGame 
-                chosenPokemon={chosenPokemon}
-                setChosenPokemon={setChosenPokemon}
-                guessedPokemon={guessedPokemon}
-                setGuessedPokemon={setGuessedPokemon}
-                activeGame={activeGame}
-                setActiveGame={setActiveGame}
-            /> 
-        }
-    </div>); 
+            { activeGame === false ? 
+                <StartGame
+                    pokemonArray={pokemonArray}
+                    setActiveGame={setActiveGame}
+                    setChosenPokemon={setChosenPokemon}
+                />
+                : 
+                <DisplayGame 
+                    chosenPokemon={chosenPokemon}
+                    setChosenPokemon={setChosenPokemon}
+                    guessedPokemon={guessedPokemon}
+                    setGuessedPokemon={setGuessedPokemon}
+                    activeGame={activeGame}
+                    setActiveGame={setActiveGame}
+                /> 
+            }
+            
+        </Box>
+    ); 
 }

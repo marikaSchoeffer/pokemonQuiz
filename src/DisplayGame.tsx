@@ -5,6 +5,10 @@ import { DisplayHints } from "./DisplayHints";
 import { WinTheGame } from "./WinTheGame";
 import { Pokemon } from "./types/Pokemon";
 
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import CheckIcon from '@mui/icons-material/Check';
+
 type DisplayGameProps = {
     chosenPokemon: Pokemon;
     setChosenPokemon: (pokemon: Pokemon) => void;  
@@ -39,7 +43,13 @@ export function DisplayGame(props: DisplayGameProps) {
     }
 
     return(
-        <div>
+        <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            rowGap="20px"
+        >
             { gameState === "active" || gameState === "guessedWrong" ? (
                 <>
                     <GenerateHints
@@ -66,11 +76,19 @@ export function DisplayGame(props: DisplayGameProps) {
                             })
                     }
 
-                    <input 
-                        value={props.guessedPokemon}
-                        onChange={x => props.setGuessedPokemon(x.target.value)}
-                    />
-                    <button onClick={handleClickCheckGuess}>Check</button>
+                    <Box
+                        display="flex"
+                        flexDirection="row"
+                        gap="20px"
+                    >
+                        <input 
+                            value={props.guessedPokemon}
+                            onChange={x => props.setGuessedPokemon(x.target.value)}
+                        />
+                        <IconButton onClick={handleClickCheckGuess}>
+                            <CheckIcon/>
+                        </IconButton>
+                    </Box>
                 </>)
                 : null
             }
@@ -92,7 +110,7 @@ export function DisplayGame(props: DisplayGameProps) {
                 :
                 null
             }
-        </div>
+        </Box>
     )
 
 }
