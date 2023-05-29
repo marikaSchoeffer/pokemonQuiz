@@ -21,6 +21,10 @@ let pokemonArray: Pokemon[] = [
             {
                 category: "Samen-Pokémon",
                 isHint: false
+            },
+            {
+                image: "./image/Bisasam.png",
+                isHint: false
             }
         ],
         metaData: {
@@ -49,6 +53,10 @@ let pokemonArray: Pokemon[] = [
             {
                 category: "Samen-Pokémon",
                 isHint: false
+            },
+            {
+                image: "./image/Bisaknosp.png",
+                isHint: false
             }
         ],
         metaData: {
@@ -76,6 +84,10 @@ let pokemonArray: Pokemon[] = [
             },
             {
                 category: "Samen-Pokémon",
+                isHint: false
+            },
+            {
+                image: "./image/Bisaflor.png",
                 isHint: false
             }
         ],
@@ -106,6 +118,10 @@ let pokemonArray: Pokemon[] = [
             {
                 category: "Echsen-Pokémon",
                 isHint: false
+            },
+            {
+                image: "./image/Glumanda.png",
+                isHint: false
             }
         ],
         metaData: {
@@ -134,6 +150,10 @@ let pokemonArray: Pokemon[] = [
             },
             {
                 category: "Flammen-Pokémon",
+                isHint: false
+            },
+            {
+                image: "./image/Glutexo.png",
                 isHint: false
             }
         ],

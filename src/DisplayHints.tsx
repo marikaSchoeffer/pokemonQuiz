@@ -7,6 +7,15 @@ type DisplayHintsProps = {
 }
 
 export function DisplayHints(props: DisplayHintsProps) {
+
+    function getSilhouette(value: string) {
+        return <img
+                    src={value}
+                    alt="A Pokemon"
+                    style={{filter: "brightness(0%)"}}
+                />
+    }
+
     function translateKeyValue(key: string, value: string) {
         if(key === "type") {
             key = "Typ";
@@ -26,14 +35,18 @@ export function DisplayHints(props: DisplayHintsProps) {
     
         return `${key}: ${value}`
     }
-   
+
     return(
         <Box>
-            <Typography>
-                {
-                    translateKeyValue(props.keyOfHint, props.valueOfHint)
+                { props.keyOfHint === "image" ?
+                    getSilhouette(props.valueOfHint)
+                    :
+                    <Typography>
+                        {
+                            translateKeyValue(props.keyOfHint, props.valueOfHint)
+                        }
+                    </Typography>
                 }
-            </Typography>
         </Box>
     ); 
 }

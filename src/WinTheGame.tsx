@@ -34,7 +34,7 @@ export function WinTheGame(props: WinTheGameProps) {
             <img 
                 src={props.chosenPokemon.metaData.image} 
                 alt={props.chosenPokemon.metaData.name}
-                width="350px"
+                height="300px"
             />
     
             <Tooltip title="Start New Game">
