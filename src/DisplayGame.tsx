@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { GenerateHints } from "./GenerateHints";
 import { DisplayHints } from "./DisplayHints";
-import { WinTheGame } from "./WinTheGame";
+import { EndTheGame } from "./EndTheGame";
 import { Pokemon } from "./types/Pokemon";
 
 import Box from '@mui/material/Box';
@@ -21,6 +21,7 @@ type DisplayGameProps = {
 export function DisplayGame(props: DisplayGameProps) {
 
     const [gameState, setGameState] = useState("active");
+  
 
     function handleClickCheckGuess() {
         let nameOfChosenPokemon = structuredClone(props.chosenPokemon.metaData.name).toUpperCase(); 
@@ -55,6 +56,7 @@ export function DisplayGame(props: DisplayGameProps) {
                     <GenerateHints
                         chosenPokemon={props.chosenPokemon}
                         setChosenPokemon={props.setChosenPokemon}
+                        setGameState={setGameState}
                     />
 
 
@@ -95,11 +97,24 @@ export function DisplayGame(props: DisplayGameProps) {
 
             {
                 gameState === "guessedRight" ?
-                    <WinTheGame 
-                    setActiveGame={props.setActiveGame}
-                    setGuessedPokemon={props.setGuessedPokemon}
-                    chosenPokemon={props.chosenPokemon}
-                />
+                    <EndTheGame 
+                        gameState={gameState}
+                        setActiveGame={props.setActiveGame}
+                        setGuessedPokemon={props.setGuessedPokemon}
+                        chosenPokemon={props.chosenPokemon}
+                    />
+                :
+                null
+            }
+
+            {
+                gameState === "quitGame" ?
+                    <EndTheGame
+                        gameState={gameState}
+                        setActiveGame={props.setActiveGame}
+                        setGuessedPokemon={props.setGuessedPokemon}
+                        chosenPokemon={props.chosenPokemon}
+                    />
                 :
                 null
             }

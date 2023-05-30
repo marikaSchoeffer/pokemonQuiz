@@ -6,13 +6,14 @@ import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-type WinTheGameProps = {
+type EndTheGameProps = {
+    gameState: string; 
     setActiveGame: (active: boolean) => void; 
     setGuessedPokemon: (pokemonName: string) => void;
     chosenPokemon: Pokemon;
 }
 
-export function WinTheGame(props: WinTheGameProps) {
+export function EndTheGame(props: EndTheGameProps) {
 
     function handleClickOneMoreTime() {
         props.setActiveGame(false);
@@ -27,9 +28,19 @@ export function WinTheGame(props: WinTheGameProps) {
             alignItems="center"
             rowGap="20px"
         >
-            <Typography variant="h5" fontWeight="500">
-                Congratulations! It's {props.chosenPokemon.metaData.name}
-            </Typography>
+
+            {
+                props.gameState === "guessedRight" ?
+
+                <Typography variant="h5" fontWeight="500">
+                    Congratulations! It's {props.chosenPokemon.metaData.name}
+                </Typography>
+                :
+                <Typography variant="h5" fontWeight="500">
+                    It's {props.chosenPokemon.metaData.name}
+                </Typography>
+            }
+            
 
             <img 
                 src={props.chosenPokemon.metaData.image} 
